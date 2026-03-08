@@ -18,7 +18,8 @@ router.get('/courses', async (req, res) => {
 router.post('/enroll', validatorEnrollment, async (req, res) => {
     const { student_name, course_id } = req.body;
 
-    const { data, error } = await supabase.from('enrollments').insert([{ student_name, course_id }]);
+    const { data, error } = await supabase.from('enrollments').insert([{ student_name, course_id }])
+        .select();
 
     if (error) {
         return res.status(500).json({ message: "Error enrolling student", error });
