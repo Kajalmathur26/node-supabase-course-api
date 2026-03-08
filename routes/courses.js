@@ -24,7 +24,7 @@ router.post('/enroll', validatorEnrollment, async (req, res) => {
         return res.status(500).json({ message: "Error enrolling student", error });
     }
 
-    res.json({ message: "Student enrolled successfully", enrollment: data[0] });
+    res.json({ message: "Student enrolled successfully", enrollment: data });
 });
 
 // GET enrollment for courses
