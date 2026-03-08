@@ -30,7 +30,7 @@ router.post('/enroll', validatorEnrollment, async (req, res) => {
 
 // GET enrollment for courses
 router.get('/courses/:id/enrollments', async (req, res) => {
-    const courseId = req.params;
+    const courseId = req.params.id;
 
     const { data, error } = await supabase.from('enrollments').select('*').eq('course_id', courseId);
 
